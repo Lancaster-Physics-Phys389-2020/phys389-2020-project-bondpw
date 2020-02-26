@@ -14,10 +14,10 @@ class PhysicalSystem:
         for i in range(self.steps):
 
             for j in self.system:
-                if self.system[j].Name == 'TO':
+                if j.Name == 'TO':
                     j.update(self.delt)
                     j.updatefunction()
-                if self.system[j].Name == 'BO':
+                if j.Name == 'BO':
                     j.update(self.delt)
             data = cp.deepcopy(self.system)
             SystemData.append(data)
