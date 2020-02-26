@@ -10,14 +10,15 @@ class PhysicalSystem:
     def Movement (self):
 
         SystemData = []
-        Time = []
-   
+        
         for i in range(self.steps):
 
             for j in self.system:
-                j.update(self.delt)
+                if self.system[j].Name == 'TO':
+                    j.update(self.delt)
+                    j.updatefunction()
+                if self.system[j].Name == 'BO':
+                    j.update(self.delt)
             data = cp.deepcopy(self.system)
             SystemData.append(data)
-
-            Time.append((len(SystemData)-1))
         np.save("DataForAnalysis",SystemData)
