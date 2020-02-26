@@ -1,7 +1,6 @@
 import numpy as np
 import copy as cp
 
-
 class PhysicalSystem:
     def __init__ (self, steps, delt, system):
         self.steps = steps
@@ -11,17 +10,14 @@ class PhysicalSystem:
     def Movement (self):
 
         SystemData = []
+        Time = []
    
-        
         for i in range(self.steps):
-            data = []
 
-            for j in self.system: # in range(steps):
+            for j in self.system:
                 j.update(self.delt)
-                #data.append(cp.deepcopy(j))
             data = cp.deepcopy(self.system)
-            print(self.system)
             SystemData.append(data)
+
+            Time.append((len(SystemData)-1))
         np.save("DataForAnalysis",SystemData)
-
-
