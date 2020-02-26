@@ -19,6 +19,9 @@ class ParticleFunction:
         self.Position_x = self.Position_x + self.Velocity[0]*delt
         self.Position_y = self.Position_y + self.Velocity[1]*delt
         self.Velocity = self.Velocity + self.Acceleration*delt
+        
+    def updatefunction(self):
+        self.Position_y = ma.sin(self.Position_x)
 
     def setName(self,Name):
         self.Name = Name
