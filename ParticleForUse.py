@@ -19,7 +19,6 @@ class Particle:
     def update(self,delt):
         self.Position = self.Position + self.Velocity*delt
         self.Velocity = self.Velocity + self.Acceleration*delt
-    
     '''The code below defines an update method for both position and velocity using a constant acceleration, this method is the Euler Cromer update method'''
     '''The only variable that has to be defined in it is 'delt' which represents the timestep in seconds'''
     def update2(self,delt):
@@ -32,3 +31,6 @@ class Particle:
     'This sets the name of the particle to the one given to it'
     def setName(self,Name):
         self.Name = Name
+
+    def __eq__(self,sample):
+        return np.allclose(self.Position, sample.Position,atol=1e-10),np.allclose(self.Velocity,sample.Velocity,atol=1e-10),np.allclose(self.Acceleration,sample.Acceleration,atol=1e-10)

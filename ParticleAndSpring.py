@@ -18,7 +18,9 @@ class ParticleAndSpring(Pa):
         if self. DampF < 0:
             raise ValueError("Damping coefficient must greater than, or equal to 0")
 
-    
     '''This returns the new object once it has been created'''
     def __repr__(self):  
         return 'TopObject1: {0}, Mass: {1:12.3e}, LinF: {2:12.3e}, DampF: {3:12.3e}, Position: {4}, Velocity: {5}, Acceleration: {6}'.format(self.Name,self.Mass,self.LinF,self.DampF,self.Position,self.Velocity,self.Acceleration)
+
+    def __eq__(self,sample):
+        return np.allclose(self.Mass,sample.Mass,atol=1e-10),np.allclose(self.LinF,sample.LinF,atol=1e-10),np.allclose(self.DampF,sample.DampF,atol=1e-10)

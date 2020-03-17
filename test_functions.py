@@ -3,6 +3,16 @@ import numpy as np
 from ParticleForUse import Particle as Pa 
 
 def test_update(): 
-    assert Pa([1.0,1.0],[1.0,1.0],[1.0,1.0],'TestObject').update(5) == Pa([6.0,6.0],[6.0,6.0],[1.0,1.0],'TestObject')
+    TestP = Pa([0.0,0.0],[0.0,0.0],[1.0,1.0],'TestP')
+    TestP.update(1)
+    TestPexp = Pa([0.0,0.0],[1.0,1.0],[1.0,1.0],'TestP')
+
+    assert TestP == TestPexp
     
-    assert Pa([1.0,1.0],[1.0,1.0],[1.0,1.0],'TestObject').update2(5) == Pa([31.0,31.0],[6.0,6.0],[1.0,1.0],'TestObject')
+def test_update_2():
+    
+    TestPEC = Pa([0.0,0.0],[0.0,0.0],[1.0,1.0],'TestP')
+    TestPEC.update2(1)
+    TestPECexp = Pa([1.0,1.0],[1.0,1.0],[1.0,1.0],'TestP')
+
+    assert TestPEC == TestPECexp
