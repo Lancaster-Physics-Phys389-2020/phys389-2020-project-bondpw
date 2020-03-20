@@ -2,6 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 data = np.load("DataForAnalysis.npy", allow_pickle= True)
+#data1 = np.load("DataForAnalysisKE.npy", allow_pickle = True)
+#data2 = np.load("DataForAnalysisPE.npy", allow_pickle = True)
+#data3 = np.load("DataForAnalysisSUM.npy", allow_pickle = True)
 
 TOdata = []
 BOdata = []
@@ -26,8 +29,17 @@ for i in range(len(TOdata)):
 
 fig = plt.figure()
 
-
 plt.plot(BO_x,BO_y)
 plt.plot(TO_x, TO_y)
 
 plt.show()
+
+#fig = plt.figure()
+#plt.plot(BO_x,data1)
+#plt.plot(BO_x,data2)
+
+#plt.show()
+
+#fig = plt.figure()
+#plt.plot(BO_x,data3)
+#plt.show()
